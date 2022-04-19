@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('accueil');
-});
+Route::get('/Bienvenue',[FoodController::class,"index"])->name("accueil");
+
+Route::get('/detail/{id}',[FoodController::class,"detail"])->name("detail");
+
+//affichage de mon formulaire
+Route::get('/contactez-nous',[ContactController::class,"index"])->name("contact");
+
+//reception des données du formulaire de contact en post
+Route::post('/contactez-nous',[ContactController::class,"save"])->name("contact");
+
+
