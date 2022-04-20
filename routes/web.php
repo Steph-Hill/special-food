@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FoodController;
-use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +16,19 @@ use App\Http\Controllers\ContactController;
 */
 
 
-Route::get('/Bienvenue',[FoodController::class,"index"])->name("accueil");
+Route::get('/',[FoodController::class,"index"])->name("accueil");
 
 Route::get('/detail/{id}',[FoodController::class,"detail"])->name("detail");
 
-//affichage de mon formulaire
+/**Mon formulaire */
+
 Route::get('/contactez-nous',[ContactController::class,"index"])->name("contact");
 
-//reception des données du formulaire de contact en post
+/*Réception des données de mon formulaire*/
+
 Route::post('/contactez-nous',[ContactController::class,"save"])->name("contact");
+
+
+
 
 

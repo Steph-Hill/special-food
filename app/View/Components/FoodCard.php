@@ -32,4 +32,6 @@ class FoodCard extends Component
     {
         return view('components.food-card');
     }
+
+    
 }
